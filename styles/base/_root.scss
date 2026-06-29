@@ -1,0 +1,17 @@
+@use "../abstracts/tokens" as *;
+
+:root {
+  --background: #{$color-background};
+  --foreground: #{$color-foreground};
+  --muted: #{$color-muted};
+  --card: #{$color-card};
+  --line: #{$color-line};
+  --primary: #{$color-primary};
+  --primary-hover: #{$color-primary-hover};
+  --layout-max-width: #{$layout-max-width};
+  --layout-padding-inline: clamp(
+    #{$layout-padding-inline-min},
+    #{$layout-padding-inline-fluid},
+    #{$layout-padding-inline-max}
+  );
+}
