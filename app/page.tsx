@@ -1,39 +1,14 @@
-import { Section } from "./_components/Section/Section";
+import { MotionedSection } from "./_components/Section/MotionedSection";
 import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
-      <Section>
-        <h1 className={styles.title}>Hello World</h1>
-      </Section>
+      {Array.from({ length: 10 }).map((_, index) => (
+        <MotionedSection key={index}>
+          <h1 className={styles.title}>Hello World</h1>
+        </MotionedSection>
+      ))}
     </>
   );
 }
