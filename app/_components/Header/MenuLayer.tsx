@@ -33,13 +33,13 @@ export function MenuLayer({ id, isOpen, onClose }: MenuLayerProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/skills" onClick={onClose}>
-                    Skills
+                  <Link href="/work" onClick={onClose}>
+                    Work
                   </Link>
                 </li>
                 <li>
-                  <Link href="/projects" onClick={onClose}>
-                    Projects
+                  <Link href="/project" onClick={onClose}>
+                    Project
                   </Link>
                 </li>
               </ul>
