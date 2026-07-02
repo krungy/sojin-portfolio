@@ -1,9 +1,11 @@
 .header {
+  position: relative;
   z-index: 100;
   background: transparent;
 }
 
 .container {
+  position: relative;
   width: 100%;
   padding: 3rem 6rem;
   display: flex;
@@ -46,4 +48,86 @@
 .menuIcon {
   width: 32px;
   height: 32px;
+}
+
+.iconSwitch {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconFrame {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuButton {
+  position: relative;
+  z-index: 130;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuArea {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.menuLayer {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  z-index: 110;
+  width: 22rem;
+  transform-origin: top right;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 3rem 1rem 1rem;
+  border: 1px solid var(--line);
+}
+
+.menuList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menuList a {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  color: var(--foreground);
+}
+
+.menuList a:hover {
+  background: #f8fafc;
+}
+
+.menuList a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.menuMotionSection {
+  padding-block: 0;
 }
