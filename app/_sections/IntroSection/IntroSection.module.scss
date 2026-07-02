@@ -1,0 +1,28 @@
+.section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-block: 0;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-block: 1rem;
+}
+
+.headline {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.85;
+}
