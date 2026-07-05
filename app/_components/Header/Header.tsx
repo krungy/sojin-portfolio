@@ -3,10 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
+
 import { useOutsideClick } from "@/app/_hooks/useOutsideClick";
+
 import { Button } from "../Button/Button";
-import { MenuLayer } from "./MenuLayer";
+
 import styles from "./Header.module.scss";
+import { MenuLayer } from "./MenuLayer";
 
 const draw = {
   hidden: { pathLength: 0, opacity: 0 },

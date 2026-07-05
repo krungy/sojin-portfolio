@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+
 import { Section } from "./Section";
+
 import type { MotionedSectionProps } from "./MotionedSection.types";
 
 export function MotionedSection({

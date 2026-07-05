@@ -1,4 +1,5 @@
 import { MotionedSection } from "@/app/_components/Section/MotionedSection";
+
 import styles from "./IntroSection.module.scss";
 
 export function IntroSection() {

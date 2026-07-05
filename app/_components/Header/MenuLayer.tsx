@@ -1,7 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+
 import { MotionedSection } from "../Section/MotionedSection";
+
 import styles from "./Header.module.scss";
+
 import type { MenuLayerProps } from "./MenuLayer.types";
 
 export function MenuLayer({ id, isOpen, onClose }: MenuLayerProps) {

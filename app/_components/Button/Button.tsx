@@ -1,5 +1,7 @@
 import classNames from "classnames";
+
 import styles from "./Button.module.scss";
+
 import type { ButtonProps } from "./Button.types";
 
 export function Button({
