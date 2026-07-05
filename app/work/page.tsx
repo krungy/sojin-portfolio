@@ -1,9 +1,9 @@
-import { WorkSection } from "../_sections/WorkSection/WorkSection";
+import { WorkListSection } from "../_sections/WorkListSection/WorkListSection";
 
 export default function WorkPage() {
   return (
     <>
-      <WorkSection />
+      <WorkListSection />
     </>
   );
 }
