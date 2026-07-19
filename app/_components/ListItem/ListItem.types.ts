@@ -12,7 +12,6 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   description?: ReactNode;
   skills?: ListItemSkill[];
   isIconFilled?: boolean;
-  isActionExpanded?: boolean;
-  actionLabel?: string;
-  onActionClick?: () => void;
+  actionContent?: ReactNode;
+  onActionClick?: (isExpanded: boolean) => void;
 }

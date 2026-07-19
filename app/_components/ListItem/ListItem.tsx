@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import { Badge, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
-import { useId } from "react";
+import { useId, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 import { SKILL_IMAGE_BY_ID } from "@/common/skills";
@@ -18,15 +18,23 @@ export function ListItem({
   description,
   skills = [],
   isIconFilled = false,
-  isActionExpanded = false,
-  actionLabel,
+  actionContent,
   onActionClick,
   className,
   ...props
 }: ListItemProps) {
   const skillTooltipId = useId();
+  const actionPanelId = useId();
+  const [isActionExpanded, setIsActionExpanded] = useState(false);
   const hasSkills = skills.length > 0;
-  const hasAction = actionLabel !== undefined;
+  const hasAction = actionContent !== undefined;
+
+  const handleActionClick = () => {
+    const nextIsExpanded = !isActionExpanded;
+
+    setIsActionExpanded(nextIsExpanded);
+    onActionClick?.(nextIsExpanded);
+  };
 
   return (
     <div className={classNames(styles.item, className)} {...props}>
@@ -69,14 +77,27 @@ export function ListItem({
         ) : null}
 
         {hasAction ? (
-          <button className={styles.actionButton} type="button" onClick={onActionClick}>
+          <>
+            <button
+              className={styles.actionButton}
+              type="button"
+              aria-expanded={isActionExpanded}
+              aria-controls={actionPanelId}
+              onClick={handleActionClick}
+            >
+              {isActionExpanded ? (
+                <ChevronUp aria-hidden="true" />
+              ) : (
+                <ChevronDown aria-hidden="true" />
+              )}
+              <span>{isActionExpanded ? "Hide Details" : "View Details"}</span>
+            </button>
             {isActionExpanded ? (
-              <ChevronUp aria-hidden="true" />
-            ) : (
-              <ChevronDown aria-hidden="true" />
-            )}
-            <span>{actionLabel}</span>
-          </button>
+              <div id={actionPanelId} className={styles.actionContent}>
+                {actionContent}
+              </div>
+            ) : null}
+          </>
         ) : null}
       </div>
     </div>
