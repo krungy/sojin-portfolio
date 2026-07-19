@@ -1,6 +1,12 @@
+"use client";
+
 import classNames from "classnames";
 import { Badge, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
+import { useId } from "react";
+import { Tooltip } from "react-tooltip";
+
+import { SKILL_IMAGE_BY_ID } from "@/common/skills";
 
 import styles from "./ListItem.module.scss";
 
@@ -18,6 +24,7 @@ export function ListItem({
   className,
   ...props
 }: ListItemProps) {
+  const skillTooltipId = useId();
   const hasSkills = skills.length > 0;
   const hasAction = actionLabel !== undefined;
 
@@ -35,20 +42,30 @@ export function ListItem({
         </div>
 
         {hasSkills ? (
-          <ul className={styles.skills} aria-label={`${title} 기술 스택`}>
-            {skills.map(({ label, iconSrc }) => (
-              <li key={label} className={styles.skillItem}>
-                <div className={styles.skill}>
-                  {iconSrc ? (
-                    <Image src={iconSrc} alt={label} fill sizes="24px" className={styles.skillIcon} />
-                  ) : (
-                    <span className={styles.skillFallback}>{label.slice(0, 1)}</span>
-                  )}
-                  <span className={styles.skillTooltip}>{label}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className={styles.skills} aria-label={`${title} 기술 스택`}>
+              {skills.map(({ id, label, iconSrc }) => {
+                const skillImageSrc = iconSrc ?? SKILL_IMAGE_BY_ID[id];
+
+                return (
+                  <li key={id} className={styles.skillItem}>
+                    <div
+                      className={styles.skill}
+                      data-tooltip-id={skillTooltipId}
+                      data-tooltip-content={label}
+                    >
+                      {skillImageSrc ? (
+                        <Image src={skillImageSrc} alt={label} fill sizes="24px" className={styles.skillIcon} />
+                      ) : (
+                        <span className={styles.skillFallback}>{label.slice(0, 1)}</span>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <Tooltip id={skillTooltipId} place="bottom" />
+          </>
         ) : null}
 
         {hasAction ? (

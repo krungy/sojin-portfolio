@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
 export type ListItemSkill = {
+  id: string;
   label: string;
   iconSrc?: string;
 };
