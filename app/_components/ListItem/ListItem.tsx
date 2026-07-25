@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames";
-import { Badge, ChevronDown, ChevronUp } from "lucide-react";
+import { Badge, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useId, useState } from "react";
 import { Tooltip } from "react-tooltip";
@@ -85,11 +85,12 @@ export function ListItem({
               aria-controls={actionPanelId}
               onClick={handleActionClick}
             >
-              {isActionExpanded ? (
-                <ChevronUp aria-hidden="true" />
-              ) : (
-                <ChevronDown aria-hidden="true" />
-              )}
+              <ChevronDown
+                aria-hidden="true"
+                className={classNames(styles.actionChevron, {
+                  [styles.actionChevronExpanded]: isActionExpanded,
+                })}
+              />
               <span>{isActionExpanded ? "Hide Details" : "View Details"}</span>
             </button>
             {isActionExpanded ? (

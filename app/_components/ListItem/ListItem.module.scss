@@ -109,10 +109,14 @@
   cursor: pointer;
 }
 
-.actionButton svg {
+.actionChevron {
   width: 1rem;
   height: 1rem;
-  transition: transform 0.2s ease-out;
+  transition: transform 0.25s ease;
+}
+
+.actionChevronExpanded {
+  transform: rotate(180deg);
 }
 
 .actionButton span {
@@ -121,9 +125,14 @@
   text-align: left;
 }
 
-.actionButton:hover svg,
-.actionButton:focus-visible svg {
-  transform: translateX(0.125rem);
+.actionButton:hover .actionChevron:not(.actionChevronExpanded),
+.actionButton:focus-visible .actionChevron:not(.actionChevronExpanded) {
+  transform: translateY(0.125rem);
+}
+
+.actionButton:hover .actionChevronExpanded,
+.actionButton:focus-visible .actionChevronExpanded {
+  transform: rotate(180deg) translateY(-0.125rem);
 }
 
 .actionButton:focus-visible {
