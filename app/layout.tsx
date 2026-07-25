@@ -1,21 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
-
 import { Footer } from "./_components/Footer/Footer";
 import { Header } from "./_components/Header/Header";
 import styles from "./layout.module.scss";
 
 import type { Metadata } from "next";
 import "../styles/main.scss";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "이소진 | 프론트엔드 개발자",
@@ -28,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="ko">
       <body className={styles.page}>
         <Header />
         <main className={styles.main}>
