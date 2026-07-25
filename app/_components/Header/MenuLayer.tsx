@@ -7,6 +7,24 @@ import styles from "./Header.module.scss";
 
 import type { MenuLayerProps } from "./MenuLayer.types";
 
+const MENU_ACTIONS = [
+  {
+    href: "mailto:furler711@gmail.com",
+    label: "Email",
+    external: false,
+  },
+  {
+    href: "https://github.com/krungy",
+    label: "GitHub",
+    external: true,
+  },
+  {
+    href: "https://www.linkedin.com/in/isoj/",
+    label: "LinkedIn",
+    external: true,
+  },
+] as const;
+
 export function MenuLayer({ id, isOpen, onClose }: MenuLayerProps) {
   return (
     <AnimatePresence>
@@ -40,14 +58,35 @@ export function MenuLayer({ id, isOpen, onClose }: MenuLayerProps) {
                     Work
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/project" onClick={onClose}>
                     Project
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </MotionedSection>
+
+          <motion.div
+            className={styles.menuActions}
+            role="group"
+            aria-label="바로가기"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
+          >
+            {MENU_ACTIONS.map(({ href, label, external }) => (
+              <Link
+                key={label}
+                href={href}
+                className={styles.menuAction}
+                onClick={onClose}
+                {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+              >
+                {label}
+              </Link>
+            ))}
+          </motion.div>
         </motion.section>
       ) : null}
     </AnimatePresence>
