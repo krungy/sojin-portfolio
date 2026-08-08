@@ -20,4 +20,7 @@ export const SKILL_IMAGE_BY_ID: Record<string, string> = {
   highcharts: "/images/highcharts.webp",
   reduxToolkit: "/images/redux-toolkit.webp",
   vuex: "/images/vuex.webp",
+  mobx: "/images/mobx.webp",
+  angular: "/images/angular.webp",
+  ngrx: "/images/ngrx.webp",
 };
